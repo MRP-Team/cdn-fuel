@@ -164,8 +164,8 @@ local function checkVersion(err, responseText, headers)
 end
 
 
-Citizen.CreateThread(function()
-	updatePath = "/CodineDev/cdn-fuel"
-	resourceName = "cdn-fuel ("..GetCurrentResourceName()..")"
-	PerformHttpRequest("https://raw.githubusercontent.com"..updatePath.."/master/version", checkVersion, "GET")
-end)
+-- Citizen.CreateThread(function()
+-- 	updatePath = "/CodineDev/cdn-fuel"
+-- 	resourceName = "cdn-fuel ("..GetCurrentResourceName()..")"
+-- 	PerformHttpRequest("https://raw.githubusercontent.com"..updatePath.."/master/version", checkVersion, "GET")
+-- end)

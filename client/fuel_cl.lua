@@ -170,7 +170,9 @@
 				if DoesBlipExist(currentGasBlip) then
 					RemoveBlip(currentGasBlip)
 				end
-				currentGasBlip = CreateBlip(closestCoords, Config.GasStations[closestLocation].label)
+				if Config.GasStations[closestLocation] then
+					currentGasBlip = CreateBlip(closestCoords, Config.GasStations[closestLocation].label)
+				end
 				Wait(10000)
 			end
 		end)
