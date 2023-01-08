@@ -147,7 +147,9 @@ if Config.ShowNearestGasStationOnly then
 	end)
 
 	CreateThread(function()
-		TriggerServerEvent('cdn-fuel:server:updatelocationlabels')
+		if Config.PlayerOwnedGasStationsEnabled then
+			TriggerServerEvent('cdn-fuel:server:updatelocationlabels')
+		end
 		Wait(1000)
 		local currentGasBlip = 0
 		while true do
@@ -156,22 +158,26 @@ if Config.ShowNearestGasStationOnly then
 			local closestCoords
 			local closestLocation
 			local location = 0
+			local label = "Gas Station" -- Prevent nil just in case, set default name. 
 			for _, ourCoords in pairs(Config.GasStations) do
 				location = location + 1
-				local gasStationCoords = vector3(Config.GasStations[location].pedcoords.x, Config.GasStations[location].pedcoords.y, Config.GasStations[location].pedcoords.z)
-				local dstcheck = #(coords - gasStationCoords)
-				if dstcheck < closest then
-					closest = dstcheck
-					closestCoords = gasStationCoords
-					closestLocation = location
+				if not (location > #Config.GasStations) then -- Make sure we are not going over the amount of locations available.
+					local gasStationCoords = vector3(Config.GasStations[location].pedcoords.x, Config.GasStations[location].pedcoords.y, Config.GasStations[location].pedcoords.z)
+					local dstcheck = #(coords - gasStationCoords)
+					if dstcheck < closest then
+						closest = dstcheck
+						closestCoords = gasStationCoords
+						closestLocation = location
+						label = Config.GasStations[closestLocation].label
+					end
+				else
+					break
 				end
 			end
 			if DoesBlipExist(currentGasBlip) then
 				RemoveBlip(currentGasBlip)
 			end
-			if Config.GasStations[closestLocation] then
-				currentGasBlip = CreateBlip(closestCoords, Config.GasStations[closestLocation].label)
-			end
+			currentGasBlip = CreateBlip(closestCoords, label)
 			Wait(10000)
 		end
 	end)
@@ -833,7 +839,7 @@ RegisterNetEvent('cdn-fuel:client:jerrycanfinalmenu', function(purchasetype)
 		TriggerServerEvent('cdn-fuel:server:purchase:jerrycan', purchasetype)
 	else
 		if purchasetype == 'bank' then QBCore.Functions.Notify(Lang:t("not_enough_money_in_bank"), 'error') end
-		if purchasetype == "cash" then QBCore.Functions.Notify(Lang:t("not_enough_money_in_pocket"), 'error') end
+		if purchasetype == "cash" then QBCore.Functions.Notify(Lang:t("not_enough_money_in_cash"), 'error') end
 	end
 end)
 
