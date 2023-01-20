@@ -19,8 +19,13 @@ Config.SyphonKitCap = 50 -- Maximum amount (in L) the syphon kit can fit!
 Config.SyphonPoliceCallChance = 25 -- Math.Random(1, 100) Default: 25% 
 Config.SyphonDispatchSystem = "qb-default" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
 
+<<<<<<< HEAD
 --- Jerry Can ----- 
 Config.UseJerryCan = true -- Enable the Jerry Can functionality. Will only work if properly installed.
+=======
+--- Jerry Can -----
+Config.UseJerryCan = false -- Enable the Jerry Can functionality. Will only work if properly installed.
+>>>>>>> 0f9edbf2534397e57f4b99dae219eaa20c8f2ec3
 Config.JerryCanCap = 50 -- Maximum amount (in L) the jerrycan can fit! (Default: 50L)
 Config.JerryCanPrice = 1500 -- The price of a jerry can, not including tax. 
 Config.JerryCanGas = 50 -- The amount of Gas that the Jerry Can you purchase comes with. This should not be bigger that your Config.JerryCanCap!
@@ -48,6 +53,7 @@ Config.PlayerControlledFuelPrices = true -- This gives you the option to disable
 Config.GasStationNameChanges = true -- This gives you the option to disable people being able to change the name of their gas station, only recommended if it becomes a problem.
 Config.NameChangeMinChar = 10 -- This is the minimum length that a Gas Station's name must be.
 Config.NameChangeMaxChar = 25 -- This is the maximum length that a Gas Station's name must be.
+Config.WaitTime = 100 -- This is the wait time after callbacks, if you are having issues with menus not popping up, or being greyed out, up this to around ~300, it is not recommended to go over ~750, as menus will get slower and more unresponsive the higher you go. (Fixes this issue: https://www.shorturl.at/eqS19)
 
 -- Phone --
 Config.RenewedPhonePayment = false -- When true, payments will be sent to the players phone with a notification, giving them the opportunity to accept or decline payment. If the cancel after paying for fuel, money will be returned. 
@@ -76,7 +82,7 @@ Config.ElectricVehicles = { -- The list of Electric Vehicles in the base game. Y
     "khamelion",
 }
 Config.ElectricSprite = 620 -- This is for when the player is in an electric charger, the blips with change to this sprite. (Sprite with a car with a bolt going through it: 620)
-
+Config.ElectricChargerModel = true -- If you wish, you can set this to false to add your own props, or use a ymap for the props instead.
 -- Basic Configuration Settings
 
 Config.NoFuelUsage = { -- This is for you to put vehicles that you don't want to use fuel. 
