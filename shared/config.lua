@@ -19,13 +19,8 @@ Config.SyphonKitCap = 50 -- Maximum amount (in L) the syphon kit can fit!
 Config.SyphonPoliceCallChance = 25 -- Math.Random(1, 100) Default: 25% 
 Config.SyphonDispatchSystem = "qb-default" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
 
-<<<<<<< HEAD
 --- Jerry Can ----- 
 Config.UseJerryCan = true -- Enable the Jerry Can functionality. Will only work if properly installed.
-=======
---- Jerry Can -----
-Config.UseJerryCan = false -- Enable the Jerry Can functionality. Will only work if properly installed.
->>>>>>> 0f9edbf2534397e57f4b99dae219eaa20c8f2ec3
 Config.JerryCanCap = 50 -- Maximum amount (in L) the jerrycan can fit! (Default: 50L)
 Config.JerryCanPrice = 1500 -- The price of a jerry can, not including tax. 
 Config.JerryCanGas = 50 -- The amount of Gas that the Jerry Can you purchase comes with. This should not be bigger that your Config.JerryCanCap!
